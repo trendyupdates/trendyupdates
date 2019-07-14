@@ -1,0 +1,251 @@
+<?php 
+$helper = $this->helper('Cmsmart\Marketplace\Helper\Data');
+$layout = $helper->getLandingPage();
+$allseller = $block->getAllSeller();
+$hotsellers = $block->getHotsellerdata();
+?>
+<?php if($layout == '3'):?>
+<div class="landing-page">
+    <div>
+		<section class="sell-with-us02 text-center">
+			<div class="container">
+				<h2>sell with us</h2>
+				<p>We are largest growing community to sell online, Come and Join us.</p>
+			</div>
+		</section>
+		<!-- turn passion -->
+		<section class="marketplace turn-passion">
+			<div class="container">
+				<div class="section-heading">
+					<h2>TURN YOUR PASSION INTO A BUSINESS</h2>
+					<div class="rule"></div>
+				</div>
+				<div class="section-content passion">
+					<div class="row display-clear">
+						<div class="col-sm-6 col-md-3">
+							<div class="passion-item">
+								<div class="passion-item__img">
+									<a href="#">
+										<span class="passion-icon display-flex">
+											<img src="<?php echo $this->getViewFileUrl('Cmsmart_Marketplace::images/marketplace03/passion01.png'); ?>" alt="passion01">
+										</span>
+									</a>	
+								</div>
+								<div class="passion-item__text">
+									<h3><a href="#">Register Yourself</a></h3>
+									<p>Welcome to iPhone SE, the most powerful 4‑inch phone ever. To create it, we started with a beloved design,</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-3">
+							<div class="passion-item">
+								<div class="passion-item__img">
+									<a href="#">
+										<span class="passion-icon display-flex">
+											<img src="<?php echo $this->getViewFileUrl('Cmsmart_Marketplace::images/marketplace03/passion2.png'); ?>" alt="passion2">
+										</span>
+									</a>	
+								</div>
+								<div class="passion-item__text">
+									<h3><a href="#">Add Products</a></h3>
+									<p>Welcome to iPhone SE, the most powerful 4‑inch phone ever. To create it, we started with a beloved design,</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-3">
+							<div class="passion-item">
+								<div class="passion-item__img">
+									<a href="#">
+										<span class="passion-icon display-flex">
+											<img src="<?php echo $this->getViewFileUrl('Cmsmart_Marketplace::images/marketplace03/passion03.png'); ?>" alt="passion03">
+										</span>
+									</a>	
+								</div>
+								<div class="passion-item__text">
+									<h3><a href="#">Start Selling</a></h3>
+									<p>Welcome to iPhone SE, the most powerful 4‑inch phone ever. To create it, we started with a beloved design,</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-3">
+							<div class="passion-item">
+								<div class="passion-item__img">
+									<a href="#">
+										<span class="passion-icon display-flex">
+											<img src="<?php echo $this->getViewFileUrl('Cmsmart_Marketplace::images/marketplace03/passion04.png'); ?>" alt="passion04">
+										</span>
+									</a>	
+								</div>
+								<div class="passion-item__text">
+									<h3><a href="#">Generate Revenues</a></h3>
+									<p>Welcome to iPhone SE, the most powerful 4‑inch phone ever. To create it, we started with a beloved design,</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<!-- Sellers with Taste -->
+		<section class="marketplace sellers">
+			<div class="container">
+				<div class="section-heading">
+					<h2>Sellers with Taste</h2>
+					<div class="rule"></div>
+				</div>
+				<div class="section-content sellers01">
+					<div class="row ">
+						<?php if(count($hotsellers)):?>
+							<?php foreach($hotsellers as $seller):?>
+								<?php $sellerId = $seller->getSellerId();?>
+								<?php $shopID = $seller->getShopId();?>
+								<?php $products = $block->getProductSeller($sellerId);?>	
+								<div class="col-md-6 seller">
+									<div class="seller-item">
+										<div id="carousel-example-generic01" class="carousel slide" data-ride="carousel">
+											<div class="row">
+												<div class="col-lg-6 seller-item__left">
+													<!-- Wrapper for slides -->
+													<div class="carousel-inner" role="listbox">
+														<?php if(count($products)):?>
+															<div class="item active">
+																<?php echo $block->getImage($products[0],'category_page_grid')->toHtml(); ?>
+															</div>
+														<?php endif;?>
+													</div>
+												</div>
+												<div class="col-lg-6 seller-item__right">
+												<!-- Indicators -->
+													<ul class="carousel-indicators">
+														<?php if(count($products)):?>
+															<?php foreach($products as $key=>$product):?>
+																<li data-target="#carousel-example-generic01" data-slide-to="<?php echo $key?>" class="active"><?php echo $block->getImage($product,'product_small_image')->toHtml(); ?></li>
+																<?php if($key == 3) break;?>
+															<?php endforeach;?>
+														<?php endif;?>
+													</ul>
+												</div>
+											</div>
+										</div>
+										
+									</div>
+									<div class="seller-item seller-bottom">
+											<div class="media">
+												<div class="media-left">
+													<a href="<?php echo $this->getUrl("marketplace/seller/profile/shop/$shopID", ['_secure' => $this->getRequest()->isSecure()]); ?>">
+														<img class="media-object" src="<?php echo $helper->getMediaUrl() . 'marketplace/' . ($seller->getShopLogo() ? $seller->getShopLogo() : 'no-images.png'); ?>" alt="deco">
+													</a>
+												</div>
+												<div class="media-body">
+													<h4 class="media-heading"><?php echo $seller->getShopTitle()?></h4>
+													<p><?php echo count($products)?> Products</p>
+													<a href="<?php echo $this->getUrl("marketplace/seller/profile/shop/$shopID", ['_secure' => $this->getRequest()->isSecure()]); ?>" class="button btn-viewAll">View all</a>
+												</div>
+											</div>
+									</div>
+								</div>
+							<?php endforeach;?>
+						<?php endif;?>	
+	         		</div>
+				</div>
+				<div class="section-bottom">
+					<div class="row">
+						<div class="col-sm-9">
+							<p>More than <?php echo count($allseller);?> shop owners have joined us last month</p>
+						</div>
+						<div class="col-sm-3 viewAll">
+							<a href="<?php echo $this->getUrl("marketplace/listseller", ['_secure' => $this->getRequest()->isSecure()]); ?>" class="button btn-viewMore">View all</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Sellers with Taste 02 -->
+		<section class="marketplace sellers">
+			<div class="container">
+				<div class="section-heading">
+					<h2>Sellers with Taste</h2>
+					<div class="rule"></div>
+				</div>
+				<div class="section-content sellers02">
+					<div class="row display-clear">
+						<div class="col-md-6 col-lg-6">
+							<div class="sellers02-text">
+								<h3>Easily Customize your seller profile</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br> <br>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							</div>
+						</div>
+						<div class="col-md-6 col-lg-6">
+							<div class="sellers02-img">
+								<a href="#"><img src="<?php echo $this->getViewFileUrl('Cmsmart_Marketplace::images/marketplace03/sellers01.png'); ?>" class="img-responsive"></a>
+							</div>
+						</div>
+						<div class="col-md-6 col-lg-6 col-md-push-6">
+							<div class="sellers02-text">
+								<h3>Easily Customize your seller profile</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br> <br>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							</div>
+						</div>
+						<div class="col-md-6 col-lg-6 col-md-pull-6">
+							<div class="sellers02-img">
+								<a href="#"><img src="<?php echo $this->getViewFileUrl('Cmsmart_Marketplace::images/marketplace03/sellers02.png'); ?>" class="img-responsive"></a>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- set up  -->
+		<section class="marketplace setup">
+			<div class="container">
+				<div class="section-heading">
+					<h2>Really easy to setup and customize</h2>
+					<div class="rule"></div>
+				</div>
+				<div class="section-content setup-customize">
+					<div class="setup-customize__item">
+						<div class="display-flex">
+							<a href="#"><img src="<?php echo $this->getViewFileUrl('Cmsmart_Marketplace::images/marketplace01/setup1.png'); ?>" alt="setup01"></a>
+						</div>
+						<h3>Create an Account</h3>
+					</div>
+					<div class="setup-customize__item">
+						<div class="display-flex">
+							<a href="#"><img src="<?php echo $this->getViewFileUrl('Cmsmart_Marketplace::images/marketplace01/setup2.png'); ?>" alt="setup02"></a>
+						</div>	
+						<h3>Customize your Profile</h3>
+					</div>
+					<div class="setup-customize__item">
+						<div class="display-flex">
+							<a href="#"><img src="<?php echo $this->getViewFileUrl('Cmsmart_Marketplace::images/marketplace01/setup3.png'); ?>" alt="setup03"></a>	
+						</div>
+						<h3>Add your Details</h3>
+					</div>
+					<div class="setup-customize__item">
+						<div class="display-flex">
+							<a href="#"><img src="<?php echo $this->getViewFileUrl('Cmsmart_Marketplace::images/marketplace01/setup4.png'); ?>" alt="setup04"></a>
+						</div>
+						<h3>Add your Product Listing</h3>
+					</div>
+					<div class="setup-customize__item">
+						<div class="display-flex">
+							<a href="#"><img src="<?php echo $this->getViewFileUrl('Cmsmart_Marketplace::images/marketplace01/setup5.png'); ?>" alt="setup05"></a>
+						</div>
+						<h3>Sell your Product and Earn Profits</h3>
+					</div>
+
+				</div>
+				
+			</div>
+		</section>
+		<div class="open-amarketpalce">
+			<a href="<?php echo $this->getUrl("marketplace/account/registry", ['_secure' => $this->getRequest()->isSecure()]); ?>" class="button btn-amarketpalce"><span>open amarketpalce shop</span></a>
+		</div>
+    </div>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-up" aria-hidden="true"></i></button>
+</div>
+<?php endif;?>

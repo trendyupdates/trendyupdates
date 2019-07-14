@@ -1,0 +1,586 @@
+p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #666;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    font-size: inherit
+}
+a {
+    color: #333;
+    font-weight: 400;
+    text-decoration: none
+}
+a,
+button,
+img {
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    text-decoration: none !important
+}
+a:hover,
+a:focus,
+button:hover {
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    text-decoration: none
+}
+a:hover {
+    color: #f90
+}
+button:focus {
+    outline: 0
+}
+*:focus {
+    outline: 0
+}
+input:focus {
+    outline: none
+}
+ul {
+    margin-bottom: 0;
+    padding: 0
+}
+ul li {
+    list-style-type: none
+}
+@media (min-width: 1200px) {
+    .container {
+        width: 1200px
+    }
+}
+@media (min-width: 1200px) {
+    .display-clear .col-lg-6:nth-child(2n+1) {
+        clear: left
+    }
+    .display-clear .col-lg-4:nth-child(3n+1) {
+        clear: left
+    }
+    .display-clear .col-lg-3:nth-child(4n+1) {
+        clear: left
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    .display-clear .col-md-6:nth-child(2n+1) {
+        clear: left
+    }
+    .display-clear .col-md-4:nth-child(3n+1) {
+        clear: left
+    }
+    .display-clear .col-md-3:nth-child(4n+1) {
+        clear: left
+    }
+}
+.display-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-right: 15px
+}
+.button {
+    padding: 8px 22px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 500;
+    background: #f90;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out
+}
+.button:hover {
+    color: #f90
+}
+.marketplace-index-index .page-main{
+    max-width: inherit;   
+}
+.marketplace {
+    padding-top: 60px
+}
+.marketplace .section-heading {
+    text-align: center
+}
+.marketplace .section-heading h2 {
+    font-size: 24px;
+    color: #333;
+    text-transform: uppercase
+}
+.marketplace .section-heading .rule {
+    height: 2px;
+    width: 168px;
+    background: #f90;
+    margin: 15px auto
+}
+.marketplace .section-content {
+    margin-top: 60px
+}
+
+.sell-with-us01 {
+    background: url('../images/marketplace01/bg-sell-with-us.jpg') center center no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover
+}
+.sell-with-us01 .sell-left {
+    padding: 138px 0 177px 0
+}
+.sell-with-us01 .sell-left h2 {
+    font-size: 24px;
+    color: #fff;
+    text-transform: uppercase
+}
+.sell-with-us01 .sell-left p {
+    font-size: 18px;
+    color: #fff
+}
+.sell-with-us01 .sell-right {
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 15px;
+}
+.sell-with-us01 .sell-right h2 {
+    color: #fff;
+    text-transform: capitalize;
+    font-size: 24px;
+    padding: 15px 0;
+    margin: 0
+}
+.sell-with-us01 .sell-right form .form-creatAccout .creatAccount-left .checkbox label {
+    color: #fff;
+    font-size: 13px;
+    padding: 15px 0 33px 0
+}
+.sell-with-us01 .sell-right form .form-creatAccout .creatAccount-left .checkbox label:after {
+    content: '';
+    display: table;
+    clear: both
+}
+.sell-with-us01 .sell-right form .form-creatAccout .creatAccount-left .checkbox .cr {
+    position: relative;
+    display: inline-block;
+    border: 1px solid #a9a9a9;
+    border-radius: .25em;
+    width: 1.3em;
+    height: 1.3em;
+    float: left;
+    margin-right: .5em
+}
+.sell-with-us01 .sell-right form .form-creatAccout .creatAccount-left .checkbox .cr .cr-icon {
+    position: absolute;
+    font-size: .8em;
+    line-height: 0;
+    top: 50%;
+    left: 20%
+}
+.sell-with-us01 .sell-right form .form-creatAccout .creatAccount-left .checkbox label input[type="checkbox"] {
+    display: none
+}
+.sell-with-us01 .sell-right form .form-creatAccout .creatAccount-left .checkbox label input[type="checkbox"]+.cr>.cr-icon {
+    transform: scale(3) rotateZ(-20deg);
+    opacity: 0;
+    transition: all .3s ease-in
+}
+.sell-with-us01 .sell-right form .form-creatAccout .creatAccount-left .checkbox label input[type="checkbox"]:checked+.cr>.cr-icon {
+    transform: scale(1) rotateZ(0deg);
+    opacity: 1
+}
+.sell-with-us01 .sell-right form .form-creatAccout .creatAccount-left .checkbox label input[type="checkbox"]:disabled+.cr {
+    opacity: .5
+}
+.sell-with-us01 .sell-right form .form-creatAccout .creatAccount-right {
+    margin-top: 15px
+}
+.sell-with-us01 .sell-right form .form-creatAccout .creatAccount-right .btn-creatAccount {
+    border-radius: 4px;
+    border: 1px solid transparent;
+    font-size: 18px;
+    display: block;
+    font-weight: 700
+}
+.sell-with-us01 .sell-right form .form-creatAccout .creatAccount-right .btn-creatAccount:hover {
+    background: none;
+    border: 1px solid #f90
+}
+.setup-customize__item {
+    width: 20%;
+    float: left;
+    position: relative
+}
+.setup-customize__item .display-flex {
+    height: 128px
+}
+.setup-customize__item h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 45px;
+    text-align: center
+}
+.setup-customize__item:after {
+    content: "\e258";
+    position: absolute;
+    font-family: 'Glyphicons Halflings';
+    font-size: 48px;
+    color: #999;
+    top: 40px;
+    left: -20px
+}
+.setup-customize__item:first-child:after {
+    content: ""
+}
+.why-to-sell .section-content .whyToSell-item {
+    background: #e6e7e8;
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 45px 12px 30px 12px
+}
+.why-to-sell .section-content .whyToSell-item .whyToSell-img .whyToSell-icon {
+    margin: auto;
+    height: 100px;
+    width: 100px;
+    background: #fff;
+    border-radius: 50%
+}
+.why-to-sell .section-content .whyToSell-item .whyToSell-text {
+    margin-top: 45px
+}
+.why-to-sell .section-content .whyToSell-item .whyToSell-text h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 30px
+}
+.open-shop {
+    padding: 6% 0 9% 0
+}
+.open-shop h2 {
+    color: #666;
+    font-size: 24px;
+    margin-bottom: 30px
+}
+.open-shop .btn-open-shop {
+    border-radius: 5px;
+    font-weight: 400;
+    border: 1px solid transparent
+}
+.open-shop .btn-open-shop:hover {
+    background: none;
+    border: 1px solid #f90
+}
+.sell-with-us02 {
+    background: url('..//images/marketplace02/bg-staywithus02.jpg') center center no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding: 10% 0
+}
+.sell-with-us02 h2 {
+    font-size: 24px;
+    color: #fff;
+    text-transform: uppercase
+}
+.sell-with-us02 p {
+    color: #fff;
+    font-size: 18px
+}
+.why-to-sell02 {
+    padding-bottom: 30px
+}
+.why-to-sell02 .section-content .whyToSell-item {
+    background: #fff;
+    margin-bottom: 39px;
+    padding: 0 15px
+}
+.why-to-sell02 .section-content .whyToSell-item .whyToSell-img {
+    display: table-cell;
+    vertical-align: top
+}
+.why-to-sell02 .section-content .whyToSell-item .whyToSell-img .whyToSell-icon {
+    background: #e6e7e8
+}
+.why-to-sell02 .section-content .whyToSell-item .whyToSell-text {
+    display: table-cell;
+    vertical-align: top
+}
+.whyToSell-left .whyToSell-img {
+    float: right;
+    margin-left: 45px
+}
+.whyToSell-left .whyToSell-text {
+    text-align: right
+}
+.whyToSell-right .whyToSell-img {
+    float: left;
+    margin-right: 45px
+}
+.whyToSell-right .whyToSell-text {
+    text-align: left
+}
+.section-register {
+    padding: 0
+}
+.section-register .sell-left {
+    padding: 0
+}
+.section-register .sell-left ul {
+    padding-top: 36px
+}
+.section-register .sell-left ul li {
+    color: #fff;
+    margin-top: 14px
+}
+.section-register .sell-left ul li i {
+    margin-right: 5px;
+    color: #f90
+}
+.turn-passion .passion-item__img {
+    margin-bottom: 54px
+}
+.turn-passion .passion-item__img .passion-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: solid 2px #f90;
+    margin: auto
+}
+.turn-passion .passion-item__text {
+    text-align: center
+}
+.turn-passion .passion-item__text h3 {
+    margin-bottom: 30px
+}
+.turn-passion .passion-item__text h3 a {
+    font-size: 18px;
+    font-weight: 700
+}
+.turn-passion .passion-item__text p {
+    color: #888
+}
+.sellers .sellers01 .seller {
+    margin-bottom: 30px;
+}
+.sellers .sellers01 .seller .seller-bottom{min-height: unset !important}
+.sellers .sellers01 .seller .seller-item {
+    border: solid 1px #d1d1d1;
+    padding: 15px;
+    min-height: 290px
+}
+.sellers .sellers01 .seller .seller-item .carousel {
+    position: inherit
+}
+.sellers .sellers01 .seller .seller-item .carousel .seller-item__left .carousel-inner .item {
+    border: solid 1px #d1d1d1;
+    -webkit-transition: transform 0s ease-in-out;
+    -moz-transition: transform 0s ease-in-out;
+    -o-transition: transform 0s ease-in-out;
+    transition: transform 0s ease-in-out
+}
+.sellers .sellers01 .seller .seller-item .carousel .seller-item__left .carousel-inner .item img {
+    margin: auto;
+    height: 240px
+}
+.sellers .sellers01 .seller .seller-item .carousel .seller-item__right {
+    padding-left: 0
+}
+.sellers .sellers01 .seller .seller-item .carousel .seller-item__right .carousel-indicators {
+    width: 100%;
+    top: 0;
+    position: inherit;
+    margin-left: 0;
+    left: 0;
+    text-align: left
+}
+.sellers .sellers01 .seller .seller-item .carousel .seller-item__right .carousel-indicators li {
+    height: 115px;
+    width: 120px;
+    text-indent: 0;
+    margin: 0;
+    border-radius: 0;
+    overflow: hidden;
+    text-align: center;
+    border: solid 1px #d1d1d1;
+    margin-left: 11px
+}
+.sellers .sellers01 .seller .seller-item .carousel .seller-item__right .carousel-indicators li img {
+    height: 115px;
+    width: auto
+}
+.sellers .sellers01 .seller .seller-item .carousel .seller-item__right .carousel-indicators.active {
+    text-indent: 0;
+    background: none
+}
+.sellers .sellers01 .seller .seller-item .carousel .seller-item__right .carousel-indicators.active img {
+    height: 107px;
+    width: 72px
+}
+.sellers .sellers01 .seller .seller-bottom {
+    border-top: none
+}
+.sellers .sellers01 .seller .seller-bottom .media {
+    overflow: inherit
+}
+.sellers .sellers01 .seller .seller-bottom .media .media-left {
+    padding-right: 15px
+}
+.sellers .sellers01 .seller .seller-bottom .media .media-left .media-object {
+    border: solid 1px #d1d1d1;
+    padding: 1px;
+    width: 100px;
+    height: 100px
+}
+.sellers .sellers01 .seller .seller-bottom .media .media-body {
+    overflow: inherit;
+    width: auto
+}
+.sellers .sellers01 .seller .seller-bottom .media .media-body h4 {
+    font-size: 18px;
+    margin-bottom: 8px
+}
+.sellers .sellers01 .seller .seller-bottom .media .media-body p {
+    font-size: 13px;
+    margin-bottom: 15px
+}
+.sellers .sellers01 .seller .seller-bottom .media .media-body .btn-viewAll {
+    background: none;
+    border: 1px solid #f90;
+    text-transform: inherit;
+    border-radius: 18px;
+    color: #f90;
+    padding: 8px 33px
+}
+.sellers .sellers01 .seller .seller-bottom .media .media-body .btn-viewAll:hover {
+    border: solid 1px transparent;
+    color: #fff !important;
+    background: #f90
+}
+.sellers .section-bottom {
+    background: #ebebeb;
+    padding: 23px 0
+}
+.sellers .section-bottom p {
+    font-size: 30px;
+    font-weight: 100;
+    text-align: center
+}
+.sellers .section-bottom .viewAll {
+    padding-top: 11px
+}
+.sellers .section-bottom .viewAll .btn-viewMore {
+    border-radius: 23px;
+    padding: 14px 45px;
+    font-size: 18px
+}
+.sellers .section-bottom .viewAll .btn-viewMore:hover {
+    color: #333 !important;
+}
+.sellers .sellers02 {
+    padding-bottom: 45px
+}
+.sellers .sellers02 h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #444;
+    text-transform: uppercase;
+    margin-bottom: 21px
+}
+.sellers .sellers02 p {
+    color: #888
+}
+.open-amarketpalce {
+    text-align: center;
+    padding-bottom: 120px;
+    padding-top: 60px
+}
+.open-amarketpalce .btn-amarketpalce {
+    color: #333;
+    border-radius: 5px;
+    font-size: 18px
+}
+.open-amarketpalce .btn-amarketpalce:hover {
+    color: #fff !important;
+}
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    right: 15px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #f90;
+    color: #fff;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 0
+}
+#myBtn:hover {
+    background-color: #333
+}
+#myBtn i {
+    font-size: 16px
+}
+.marketplace-index-index .page-header{margin: 0;padding: 0}
+.marketplace-index-index .page-header .panel .header{background: none}
+.marketplace.sellers .container{padding: 0}
+#maincontent{position: relative}
+#maincontent .sell-with-us02{
+    position: absolute;
+    top: 0;
+    left: -34.5px;
+    right: -34.5px;
+}
+#maincontent .turn-passion,#maincontent .why-to-sell.why-to-sell02 {margin-top: 400px;padding: 0}
+@media (max-width: 425px) {
+    #maincontent .turn-passion{margin-top: 240px}
+}
+@media (max-width: 767px) {
+    .display-clear .col-xs-12:nth-child(n) {
+        clear: left
+    }
+    .display-clear .col-xs-6:nth-child(2n+1) {
+        clear: left
+    }
+    .display-clear .col-xs-4:nth-child(3n+1) {
+        clear: left
+    }
+    #maincontent .turn-passion{margin-top: 300px;padding: 0}
+    .sell-right .actions-toolbar .primary{margin-top: 15px}
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    #maincontent .turn-passion{margin-top: 310px}
+}
+@media (min-width: 768px){
+    .field-name-firstname,.field-name-lastname,.password,.confirmation{
+        width: 50%;
+    }
+    .field-name-firstname,.password {
+        float: left;
+        padding-right: 15px;
+    }
+    .field-name-lastname,.confirmation {
+        float: right;
+        padding-left: 15px;
+    }
+    .sell-right .form.create.account{min-width: unset;width: 100%}
+    .sell-right .actions-toolbar .primary{float: right}
+}
+.sell-right .form.create.account{min-width: unset;width: 100%}
+.sell-right .form.create.account fieldset{margin: 0}
+.fieldset > .field{margin: 0 0 5px}
+.password-strength-meter{background: rgba(255, 255, 255, 0.5)}
+.newsletter{clear: left}
+.newsletter input#is_subscribed{float: left}

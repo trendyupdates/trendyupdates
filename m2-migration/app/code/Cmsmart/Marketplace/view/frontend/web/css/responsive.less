@@ -1,0 +1,283 @@
+//========== COMON ==============//
+//color and background
+@font-base: 'Roboto',sans-serif;
+@background-fff: #ffffff;
+@background-000:#000000;
+@background-e6e7e8:#e6e7e8;
+@text-color-desc: #666666;
+@main-color: #ff9900;
+@text-color: #333333;
+@text-color__888: #888;
+@text-color__444: #444;
+
+
+@font-size__base:14px;
+@font-size__xl: ceil(1.266 * @font-size__base); // 18px
+@font-size__l: ceil(1.125 * @font-size__base); // 16px
+@font-size__s: ceil(.889 * @font-size__base); // 12px
+@font-size__xs: floor(.79 * @font-size__base); // 11px
+
+// line-height
+@line-height__base : 1.5;
+
+//heading....
+@h2__font-size:24px;
+@h3__font-size:18px;
+
+//font-weight
+@font-weight__light:300;
+@font-weight__regular:400;
+@font-weight__medium:500;
+@font-weight__bold:700;
+
+// distance
+@indent__base : 15px;
+@indent__s: @indent__base;//15px
+@indent__l: @indent__base * 2;//30px
+@indent__xl: @indent__base * 3;//45px
+@indent__xxl: @indent__base * 4;//60px
+
+// mixin
+.transition(@transition) {
+    -webkit-transition: @transition;
+    -moz-transition: @transition;
+    -o-transition: @transition;
+    transition: @transition;
+}
+.border-radius(@border-radius) {
+    -webkit-border-radius: @border-radius;
+    -moz-border-radius: @border-radius;
+    -o-border-radius: @border-radius;
+    border-radius: @border-radius;
+}
+.background-size (@cover) {
+    -webkit-background-size: @cover;
+    -moz-background-size: @cover;
+    -o-background-size: @cover;
+    background-size: @cover;
+}
+//============I.HEADER=============//
+
+//============II.MAIN=============//
+//-------section-common-------//
+@media(max-width: 425px) {
+	.marketplace .section-content {
+		margin-top: @indent__l;
+	}
+}	
+//============MARKETPLACE_01=============//
+// -----sell-with-us---- //
+@media(max-width: 991px) {
+	.sell-with-us01 {
+		.sell-left {
+			padding:@indent__l 0 @indent__l 0;
+		}
+		.sell-right {
+			margin-bottom: @indent__s;
+		}
+	}
+}
+// -----setup-customize---- //
+ @media(max-width: 991px) {
+	.setup {
+	    &-customize {
+	        &__item {
+	        	.display-flex {
+	            	height: 80px;
+	                img {
+	                	width: 70px;
+	                }
+	            }
+	            &:after {
+				    top: 12px;
+				    left: -30px;
+	            }
+	            h3 {
+	            	font-size: @font-size__base;
+	            	font-weight: @font-weight__regular;
+	            }
+	        }
+	    }
+	}
+}
+@media(max-width: 767px) {
+	.setup {
+	    &-customize {
+	        &__item {
+	            width: 100%;
+	            margin-bottom: ceil(1.8 * @indent__xxl);
+	            .display-flex {
+	            	height: 100px;
+	                img {
+	                	width: 80px;
+	                }
+	            }
+	            &:after {
+				    content: "\e259";
+				    top: -84px;
+    				left: 40%;
+	            }
+	            h3 {
+	               margin-top: @indent__s;
+	               font-size: @font-size__l;
+	            }
+	            &:last-child {
+	            	margin-bottom: @indent__s;
+	            }
+	            
+	        }
+	    }
+	}
+}
+// -----why-to-sell---- //
+// -----open-shop---- //
+// //============MARKETPLACE_02=============//
+// -----sell-with-us02---- //
+// -----why to sell 02---- //
+@media(max-width: 767px) {
+	.why-to-sell02 {
+	    
+	    .section-content {
+	        .whyToSell-item {
+	           	
+	            .whyToSell-img {
+	                display: block;
+	                
+
+	                .whyToSell-icon {
+	                    
+	                }
+	            }
+	            .whyToSell-text {
+	                display: block;
+	                margin-top: @indent__l;
+	                h3 {
+	                	margin-bottom: @indent__s;
+	                }
+	            }
+	        }
+	    }
+	}
+	.whyToSell-left {
+	    .whyToSell-img {
+	        float: none;
+	        margin-left:0;
+	    }
+	    .whyToSell-text {
+	        text-align: center;
+	    }
+	}
+	.whyToSell-right {
+	    .whyToSell-img {
+	        float: none;
+	        margin-right: 0;
+	    }
+	    .whyToSell-text {
+	        text-align: center;
+	    }
+	}
+}
+// -----section-register---- //
+@media(max-width: 768px) {
+	.section-register {
+		padding:@indent__s 0;
+		.sell-left {
+			ul {
+				padding-top: @indent__s;
+			}
+		}
+	}
+}
+//============MARKETPLACE_03=============//
+// -----turn-passion---- //
+@media(max-width: 768px) {
+	.turn-passion {
+		.passion-item {
+			margin-bottom: @indent__l;
+			.passion-item__img {
+					margin-bottom: @indent__l;
+				}
+			.passion-item__text {
+				h3 {
+					margin-bottom:ceil(1.2 * @indent__s);
+				}
+			}
+		}
+	}
+}
+// -----sellers---- //
+@media(max-width: 991px) {
+	.sellers {
+		.section-bottom {
+			p {
+            font-size: @font-size__l;
+            font-weight: 100;
+            text-align: center;
+            padding: 0 ceil(0.7 * @indent__s);
+        	}
+			.viewAll {
+				padding-top: ceil(0.2 * @indent__s);
+				.btn-viewMore {
+					padding: ceil(0.5 * @indent__s)  @indent__l;
+                	font-size: @font-size__s;
+				}
+			}
+		}
+	}
+}
+@media(max-width: 767px) {
+	.sellers {
+		.section-bottom {
+			.viewAll {
+				text-align: center;
+    			margin-top: @indent__s;
+			}
+		}
+	}
+}
+@media(max-width: 1199px) {
+	.sellers {
+		.sellers01 { 
+			.seller {
+				.seller-item {
+					.carousel {
+						.seller-item__right {
+							.carousel-indicators {	
+								margin-top: @indent__s; 
+   								text-align: center;
+							}
+						}
+					}
+				}
+				.seller-bottom {
+					.media {
+						.media-body {
+							h4{
+								font-size: @font-size__l;
+							}
+							.btn-viewAll {
+								    padding:ceil(0.2 * @indent__s) ceil(0.8 * @indent__l);
+							}
+						}
+					
+					}
+					
+				}
+				
+			}
+		}
+	}
+	
+	
+}
+
+// ----setup-----//	
+@media(max-width: 767px) {
+	.open-amarketpalce {
+		padding:@indent__l 0;
+		.btn-amarketpalce {
+			font-size: @font-size__s;
+		}
+	}
+}
+//============FOOTER=============//

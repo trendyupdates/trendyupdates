@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-right"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Cmsmart_Marketplace::css/font-awesome.css"/>
+        <css src="Cmsmart_Marketplace::css/owl.carousel.css"/>
+        <css src="Cmsmart_Marketplace::css/text-animate.css"/>
+        <css src="Cmsmart_Marketplace::css/TimeCircles.css"/>
+        <css src="Cmsmart_Marketplace::css/seller-profile.css"/>
+    </head>
+    <body>
+        <referenceBlock name="page.main.title" remove="true"/>
+        <referenceBlock name="page.messages">
+            <block class="Cmsmart\Marketplace\Block\Seller\Profile\Vacation" name="marketplace_vacation_notifi"
+                   template="vacation/notification.phtml" cacheable="false"/>
+        </referenceBlock>
+        <referenceContainer name="content">
+            <block class="Cmsmart\Marketplace\Block\Seller\Profile" name="marketplace_sellerprofilehead"
+                   template="seller/profile_top_sidebar.phtml" cacheable="false"/>
+            <block class="Cmsmart\Marketplace\Block\Seller\Profile" name="marketplace_sellerprofile"
+                   template="seller/profile.phtml" cacheable="false" after="marketplace_sellerprofilehead"/>
+        </referenceContainer>
+
+        <referenceContainer name="sidebar.main">
+            <block class="Cmsmart\Marketplace\Block\Seller\Profile" name="marketplace_sellerprofileleft"
+                   template="seller/profile_left_sidebar.phtml" cacheable="false" before="-">
+                   <block class="Cmsmart\Marketplace\Block\Seller\Profile" name="seller.navigation"
+                   template="seller/navigation.phtml" cacheable="false" before="-"/>
+            </block>       
+        </referenceContainer>
+
+        <referenceContainer name="sidebar.additional">
+            <block class="Cmsmart\Marketplace\Block\Seller\Profile" name="marketplace_sellerprofileright"
+                   template="seller/profile_right_sidebar.phtml" cacheable="false" before="-"/>
+        </referenceContainer>
+    </body>
+</page>

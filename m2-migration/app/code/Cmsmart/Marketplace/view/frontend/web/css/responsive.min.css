@@ -1,0 +1,18 @@
+@media only screen and (max-width:991px){
+header .header-top .navbar .navbar-header .logo{padding-right:40px}
+}
+@media only screen and (max-width:767px){
+header .header-top{position:inherit;background:#283849}
+.slider{position:inherit}
+.rev_slider h2{font-size:80px!important}
+.rev_slider p{font-weight:400!important;font-size:14px!important;letter-spacing:1px}
+}
+@media only screen and (max-width:991px){
+.education{padding:50px 0}
+}
+@media only screen and (max-width:375px){
+.buy-now .love-education{font-size:80px}
+}
+@media only screen and (max-width:520px){
+footer{padding:0 10px}
+}

@@ -1,0 +1,354 @@
+<?php
+$_productCollection = $this->getProductCollection()->getData();
+
+$deleteUrl = $this->getUrl('marketplace/product/delete', array('_current' => true));
+$records = 10;
+$filter = '';
+$filter_prostatus = '';
+$filter_data_frm = '';
+$filter_data_to = '';
+if (isset($_GET['records'])) {
+    $records = $_GET['records'] != "" ? $_GET['records'] : 10;
+}
+if (isset($_GET['search'])) {
+    $filter = $_GET['search'] != "" ? $_GET['search'] : "";
+}
+if (isset($_GET['prostatus'])) {
+    $filter_prostatus = $_GET['prostatus'] != "" ? $_GET['prostatus'] : "";
+}
+if (isset($_GET['from_date'])) {
+    $filter_data_frm = $_GET['from_date'] != "" ? $_GET['from_date'] : "";
+}
+if (isset($_GET['to_date'])) {
+    $filter_data_to = $_GET['to_date'] != "" ? $_GET['to_date'] : "";
+}
+
+?>
+
+
+<div class="right_col" role="main">
+  <div class="">
+    <div class="page-actions-buttons">
+        <form
+            action="<?php echo $block->getUrl('marketplace/product/new', ['_secure' => $this->getRequest()->isSecure()]) ?>"
+            method="post">
+            <div id="add_new_product" title="Add Product" class="actions-split">
+                <button class="action submit primary" id="add_new_product-button" title="Add Product" type="submit">
+                    <span>Add Product</span>
+                </button>
+                <div class="input-box cmsmart-type-product">
+                    <label><?php echo __('Type') ?>:</label>
+                    <select name="type" class="required-entry">
+                        <?php foreach ($this->getAllowedProductTypes() as $type) { ?>
+                            <option value="<?php echo $type['value'] ?>"><?php echo $type['label'] ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+                <div>
+                    <label><?php echo __('Attribute Set') ?>:</label>
+                    <div class="input-box cmsmart-type-product">
+                        <select name="set" class="required-entry">
+                            <?php foreach ($this->getAllowedSets() as $set) { ?>
+                                <option value="<?php echo $set['value'] ?>"><?php echo $set['label'] ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+    <div class="page-title">
+      <div class="title_left">
+        <h3>Manages Product <small>All products on your store</small></h3>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>Default Grid <small>Products</small></h2>
+            <ul class="nav navbar-right panel_toolbox">
+              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Settings 1</a>
+                  </li>
+                  <li><a href="#">Settings 2</a>
+                  </li>
+                </ul>
+              </li>
+              <li><a class="close-link"><i class="fa fa-close"></i></a>
+              </li>
+            </ul>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+              <div>
+                  <form id="search-form-validate"
+                        action="<?php echo $this->getUrl('*/*/', ['_current' => false, '_use_rewrite' => true]) ?>"
+                        method="get">
+                      <table cellspacing="0" class="cmsmart_mp_list_table">
+                          <thead>
+                          <tr id="cmsmart_mp_tr_heading">
+                              <th><span><?php echo __('Shows') ?></span></th>
+                              <th><span><?php echo __('Product Name') ?></span></th>
+                              <th><span><?php echo __('Date') ?></span></th>
+                              <th><span><?php echo __('Product Status') ?></span></th>
+                              <th><span>&nbsp;</span></th>
+                          </tr>
+                          </thead>
+                          <tbody class="cmsmart_mp_body">
+                          <tr>
+                              <td>
+                                  <select name="records" class="input-text">
+                                      <option
+                                          value="10" <?php if ($records == 10) echo 'selected="selected"' ?>>
+                                          <?php echo __('10') ?>
+                                      </option>
+                                      <option
+                                          value="50" <?php if ($records == 50) echo 'selected="selected"' ?>>
+                                          <?php echo __('50') ?>
+                                      </option>
+                                      <option
+                                          value="100" <?php if ($records == 100) echo 'selected="selected"' ?>>
+                                          <?php echo __('100') ?>
+                                      </option>
+                                      <option
+                                          value="200" <?php if ($records == 200) echo 'selected="selected"' ?>>
+                                          <?php echo __('200') ?>
+                                      </option>
+                                  </select>
+                              </td>
+                              <td>
+                                  <input type="text" class="input-text" name="search"
+                                         placeholder='<?php echo __('Search by product name') ?>'
+                                         value="<?php echo $filter ?>"/>
+                              </td>
+                              <td>
+                                    <span class="cmsmart_mp_td_span">
+                                        <?php echo __('From: ') ?>
+                                        <input name="from_date" id="special_from_date" class="datepicker"
+                                               value="<?php echo $filter_data_frm ?>"/>
+                                    </span>
+                                    <span class="cmsmart_mp_td_span">
+                                        <?php echo __('To: ') ?>
+                                        <input name="to_date" id="special_to_date" class="datepicker"
+                                               value="<?php echo $filter_data_to ?>"/>
+                                    </span>
+                              </td>
+                              <td>
+                                  <select name="prostatus" class="input-text">
+                                      <option value=""><?php echo __('All') ?></option>
+                                      <option
+                                          value="0" <?php if ($filter_prostatus == 1) echo 'selected="selected"' ?>>
+                                          <?php echo __('Pending') ?>
+                                      </option>
+                                      <option
+                                          value="1" <?php if ($filter_prostatus == 1) echo 'selected="selected"' ?>>
+                                          <?php echo __('Approved') ?>
+                                      </option>
+                                      <option
+                                          value="2" <?php if ($filter_prostatus == 2) echo 'selected="selected"' ?>>
+                                          <?php echo __('Disapproved') ?>
+                                      </option>
+                                  </select>
+                              </td>
+                              <td>
+                                  <button id="mp-search-btn" class="action primary" title="Search" type="button">
+                                      <span><?php echo __('Search') ?></span>
+                                  </button>
+                              </td>
+                          </tr>
+                          </tbody>
+                      </table>
+                  </form>
+              </div>
+              <div class="mass-action">
+                  <form action="<?php echo $this->getUrl('marketplace/product/massDelete') ?>" method="post"
+                        id="formmassdelete" name="formmassdelete">
+                      <input type="hidden" name="form_key" value="<?php echo $this->getFormKey(); ?>"/>
+                      <button class="action submit primary" title="<?php echo __('Delete Products') ?>" type="submit"
+                              id="mass_delete_btn">
+                          <span><span><?php echo __('Delete Products') ?></span></span>
+                      </button>
+                    <table id="datatable" class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                            <th>
+                                <span>
+                                    <input type="checkbox" name="mpselecctall" value="all"
+                                           id="mpselecctall"/>
+                                </span>
+                            </th>
+                            <th><?php echo __('ID') ?></th>
+                            <th><?php echo __('Product') ?></th>
+                            <th><?php echo __('Created At') ?></th>
+                            <th><?php echo __('Status') ?></th>
+                            <th><?php echo __('Available') ?></th>
+                            <th><?php echo __('In Stock') ?></th>
+                            <th><?php echo __('QTY Sold') ?></th>
+                            <th><?php echo __('Actions') ?></th>
+                        </tr>
+                      </thead>
+
+
+                      <tbody>
+                        <?php if ($_productCollection): ?>
+                            <?php foreach ($_productCollection as $_productRecord): ?>
+                                <?php $productId = $_productRecord['entity_id']; ?>
+                                <?php $productInfo = $this->getProductInfomation($productId);?>
+                                <?php $mpId = $block->getMpId($productId); ?>
+                                <tr>
+                                    <td>
+                                        <span>
+                                            <input type="checkbox" name="product_mass_delete[]"
+                                                   class="mpcheckbox" value="<?php echo $productId; ?>"/>
+                                        </span>
+                                    </td>
+                                    <td><?php echo $mpId; ?></td>
+                                    <td>
+                                        <div title="<?php echo $_productRecord['name']; ?>">
+                                            <?php echo $this->getThumbnail($productId); ?>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <?php if (in_array($productId, $this->getSpecialProduct())) : ?>
+                                                    <span><?php echo $_productRecord['name']; ?></span>
+                                                <?php else: ?>
+                                                    <a href="<?php echo $productInfo->getProductUrl();?>"
+                                                       target="_blank"><?php echo $_productRecord['name']; ?></a>
+                                                <?php endif; ?>
+                                            </div>
+                                            <div>
+                                                <?php echo $this->helper('Magento\Framework\Pricing\Helper\Data')->currency($productInfo->getPrice(), true, false); ?>
+                                            </div>
+                                            <div>
+                                                Type: <?php echo $_productRecord['type_id']; ?>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><?php echo $block->formatDate($_productRecord['created_at']); ?></td>
+                                    <td><?php echo $this->formatStatus($_productRecord['status']); ?></td>
+                                    <td><?php echo $this->getQtyConfirmed($productId); ?></td>
+                                    <td><?php echo $this->getQtyPending($productId); ?></td>
+                                    <td><?php echo $this->getQtySold($productId); ?></td>
+                                    <td>
+                                        <span>
+                                            <a class="mp_product_edit"
+                                               href='<?php echo $this->getUrl("marketplace/product/edit/id/$productId", array('_current' => true)); ?>'>Edit</a>
+                                            <a class="mp_product_delete"
+                                               href='<?php echo $this->getUrl("marketplace/product/delete/id/$productId", array('_current' => true)); ?>'>Delete</a>
+                                        </span>
+                                    </td>
+                                </tr>
+
+                            <?php endforeach; ?>
+                        <?php endif ?>
+                      </tbody>
+                    </table>
+                      <?php if ($block->getPagerHtml()): ?>
+                          <?php echo $block->getPagerHtml();?>
+                      <?php endif; ?>
+                  </form>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    require(["jquery","mage/calendar"], function ($) {
+        $(document).ready(function () {
+            $("#mpselecctall").click(function () {
+                $(".mpcheckbox").prop('checked', $(this).prop('checked'));
+            });
+
+            $(".mpcheckbox").change(function () {
+                if (!$(this).prop("checked")) {
+                    $("#mpselecctall").prop("checked", false);
+                }
+            });
+
+            var checkBoxes = $('.mpcheckbox');
+            checkBoxes.change(function () {
+                $('#mass_delete_btn').prop('disabled', checkBoxes.filter(':checked').length < 1);
+            });
+            $('.mpcheckbox').change();
+
+            var checkAll = $('#mpselecctall');
+            checkAll.change(function () {
+                $('#mass_delete_btn').prop('disabled', checkBoxes.filter(':checked').length < 1);
+            });
+            $('#mpselecctall').change();
+
+        });
+
+        $('#mass_delete_btn').click(function () {
+            var result = confirm("Are you sure want to delete these product?");
+            if (!result) {
+                event.preventDefault();
+            }
+
+        });
+        $('.mp_product_delete').click(function () {
+            var result = confirm("Are you sure want to delete this product?");
+            if (!result) {
+                event.preventDefault();
+            }
+
+        });
+
+        $('.datepicker').datepicker({
+                prevText: '&#x3c;zurück', prevStatus: '',
+                prevJumpText: '&#x3c;&#x3c;', prevJumpStatus: '',
+                nextText: 'Vor&#x3e;', nextStatus: '',
+                nextJumpText: '&#x3e;&#x3e;', nextJumpStatus: '',
+                monthNames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
+                    'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+                monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun',
+                    'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+                dayNames: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+                dayNamesShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+                dayNamesMin: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+                showMonthAfterYear: false,
+                dateFormat: 'd/m/yy'
+            }
+        );
+
+        var dataForm = $('#search-form-validate');
+        $('#mp-search-btn').click(function (e) {
+            e.preventDefault();
+
+            if ($("input[name=search]").val().trim() == "") {
+                $("input[name=search]").attr("disabled", "disabled");
+            }
+            if ($("input[name=from_date]").val().trim() == "") {
+                $("input[name=from_date]").attr("disabled", "disabled");
+            }
+            if ($("input[name=to_date]").val().trim() == "") {
+                $("input[name=to_date]").attr("disabled", "disabled");
+            }
+            if ($("select[name=prostatus]").val().trim() == "") {
+                $("select[name=prostatus]").attr("disabled", "disabled");
+            }
+
+            dataForm.submit();
+        });
+    });
+</script>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "admin_vendor": {}
+        }
+    }
+</script>

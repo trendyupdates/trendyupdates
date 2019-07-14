@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="sales.order.items.renderers">
+            <block class="Cmsmart\Marketplace\Block\Sale\Order\Item\Renderer\DefaultRenderer" name="sales.order.items.renderer.configurable" as="configurable" template="sale/order/items/renderer/default.phtml"/>
+            <block class="Cmsmart\Marketplace\Block\Sale\Order\Item\Renderer\DefaultRenderer" name="sales.order.items.renderer.simple" as="simple" template="sale/order/items/renderer/default.phtml"/>
+            <block class="Cmsmart\Marketplace\Block\Sale\Order\Item\Renderer\DefaultRenderer" name="sales.order.items.renderer.bundle" as="simple" template="sale/order/items/renderer/default.phtml"/>
+            <block class="Cmsmart\Marketplace\Block\Sale\Order\Item\Renderer\DefaultRenderer" name="sales.order.items.renderer.downloadable" as="simple" template="sale/order/items/renderer/default.phtml"/>
+            <block class="Cmsmart\Marketplace\Block\Sale\Order\Item\Renderer\DefaultRenderer" name="sales.order.items.renderer.group" as="simple" template="sale/order/items/renderer/default.phtml"/>
+            <block class="Cmsmart\Marketplace\Block\Sale\Order\Item\Renderer\DefaultRenderer" name="sales.order.items.renderer.virtual" as="simple" template="sale/order/items/renderer/default.phtml"/>
+        </referenceBlock>
+    </body>
+</page>
